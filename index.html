@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio de Ciência de Dados - Paulo Machado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Estilos base para o header no modo claro */
+    header {
+      background-color: #4A0E70; /* Roxo Escuro */
+    }
+    /* Estilos para o header no modo escuro */
+    .dark header {
+      background-color: #37004d; /* Cor escura que mantém o tema roxo/índigo */
+    }
+
+    /* Transições suaves para os elementos que mudam de cor */
+    body, .card, header, footer, section {
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      transition: 0.3s;
+    }
+    .btn-purple {
+      background: linear-gradient(90deg, #7E22CE, #9333EA);
+    }
+    .btn-purple:hover {
+      background: linear-gradient(90deg, #6B21A8, #7E22CE);
+    }
+
+    /* Botão de tema */
+    #theme-toggle {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 9999px;
+        padding: 0.5rem 0.75rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #4A0E70; /* Cor do ícone e texto */
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease;
+    }
+    #theme-toggle:hover {
+        transform: scale(1.05);
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    .dark #theme-toggle {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #C084FC; /* Cor do ícone e texto no modo escuro */
+    }
+    .dark #theme-toggle:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Lógica do botão: Inverte o ícone e o texto para sugerir a mudança */
+    .sun-icon { display: none; } 
+    .moon-icon { display: block; } 
+    .dark .sun-icon { display: block; } 
+    .dark .moon-icon { display: none; } 
+
+
+    /* ======================================================= */
+    /* === FLUIDEZ DE CORES ENTRE SEÇÕES (CONTÊINERES MAIORES) === */
+    /* ======================================================= */
+    
+    .main-continuous-bg {
+        /* CLARO: Inicia com um lavanda suave para conectar ao header */
+        background: linear-gradient(180deg, 
+            #E0E5FF 0%,     /* NOVO: Lavanda bem suave, conecta com o roxo do header/banner */
+            #D1C4E9 15%,    /* Lavanda Claro (Habilidades) */
+            #FFEBEE 35%,    /* Rosa bem suave (Dashboards/Análise) */
+            #E0F7FA 55%,    /* Ciano bem suave (ML) */
+            #FFF3E0 75%,    /* Laranja bem suave (SQL) */
+            #E5E7EB 100%    /* Cinza Claro Suave (Fim) */
+        ); 
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+    }
+    .dark .main-continuous-bg {
+        /* ESCURO: Inicia com um roxo escuro para conectar ao header */
+        background: linear-gradient(180deg, 
+            #2B1A40 0%,     /* NOVO: Roxo Escuro (Conecta com o header) */
+            #2B1A40 15%,    /* Roxo Escuro (Habilidades) */
+            #1A273C 35%,    /* Azul Escuro (Dashboards/Análise) */
+            #1A323C 55%,    /* Ciano Escuro (ML) */
+            #2C1A1A 75%,    /* Marrom Escuro (SQL) */
+            #1A202C 100%    
+        ); 
+        color: #CBD5E0;
+    }
+    
+    /* CORREÇÃO CHAVE 1: Fundo principal e cor de texto padrão no Dark Mode */
+    body.dark {
+        background-color: #1A202C !important; 
+        color: #CBD5E0; /* Cor do texto padrão para o body */
+    }
+    
+    /* CORREÇÃO CHAVE 2: Textos cinzas que precisam ficar claros */
+    .dark .text-gray-700, .dark .text-gray-600 {
+        color: #CBD5E0 !important; /* Cinza claro para os textos de descrição */
+    }
+    
+    /* CORREÇÃO CHAVE 3: Destaques (Strong) que precisam de mais brilho */
+    .dark strong {
+        color: #E0F7FA !important; /* Ciano claro para os destaques */
+    }
+    
+    /* CORREÇÃO CHAVE 4: Aplica background escuro a todos os cards (anteriormente bg-white) */
+    .dark .bg-white {
+        background-color: #2D3748 !important; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); 
+    }
+    
+    /* Garante que os títulos coloridos no Dark Mode também fiquem claros */
+    .dark .text-purple-800 {
+        color: #DDAAFF !important; 
+    }
+
+    /* === NOVOS ESTILOS PARA CARDS DE ANÁLISE ESTATÍSTICA/DE DADOS === */
+    .card-analysis {
+      /* Modo Claro: Degradê em azul/ciano claro */
+      background: linear-gradient(135deg, #BBDEFB, #E3F2FD);
+      color: #0D47A1; /* Azul escuro para o texto no modo claro */
+    }
+    .dark .card-analysis {
+      /* Dark Mode: Degradê em azul/ciano escuro para manter o contraste */
+      background: linear-gradient(135deg, #154360, #1A5276);
+      color: #FFFFFF !important; /* Texto claro no modo escuro */
+    }
+    .dark .card-analysis h2 {
+        color: #BBDEFB !important; /* Destaque no título */
+    }
+    .dark .card-analysis p, .dark .card-analysis strong {
+        color: #FFFFFF !important; /* Texto branco e destaque (strong) */
+    }
+
+    /* === CARDS DE PROJETOS ESPECÍFICOS (ML e SQL) === */
+    
+    /* Cards ML */
+    .card-ml {
+      background: linear-gradient(135deg, #A78BFA, #C4B5FD);
+      color: #312E81;
+    }
+    .dark .card-ml {
+      background: linear-gradient(135deg, #4A1D7F, #6A2D9F);
+      color: #FFFFFF !important;
+    }
+
+    /* Cards SQL */
+    .card-sql {
+      background: linear-gradient(135deg, #FDBA74, #FED7AA);
+      color: #7C2D12;
+    }
+    .dark .card-sql {
+      background: linear-gradient(135deg, #8B4513, #A0522D);
+      color: #FFFFFF !important;
+    }
+    
+    /* Garante que o texto E os destaques dentro dos cards ML/SQL sejam brancos */
+    .dark .card-ml p, .dark .card-sql p,
+    .dark .card-ml h2, .dark .card-sql h2 {
+        color: #FFFFFF !important;
+    }
+    .dark .card-ml .text-purple-800, .dark .card-sql .text-purple-800 {
+        color: #DDAAFF !important; 
+    }
+    .dark .card-ml strong, .dark .card-sql strong {
+        color: #FFECB3 !important; 
+    }
+
+
+    /* Estilos para Soft Skills no Dark Mode */
+    .dark .bg-orange-100 { background-color: #4A2C00; }
+    .dark .text-orange-700 { color: #FFDAB9; } 
+    .dark .bg-fuchsia-100 { background-color: #4A0033; }
+    .dark .text-fuchsia-700 { color: #FF99CC; }
+    .dark .bg-cyan-100 { background-color: #00334A; }
+    .dark .text-cyan-700 { color: #99FFFF; }
+    .dark .bg-red-100 { background-color: #4A0000; }
+    .dark .text-red-700 { color: #FFA0A0; } 
+    .dark .bg-indigo-100 { background-color: #1C004A; }
+    .dark .text-indigo-700 { color: #DADAFF; } 
+    .dark .bg-lime-100 { background-color: #334A00; }
+    .dark .text-lime-700 { color: #DFFF99; }
+
+    /* Estilo para a imagem na seção Sobre Mim */
+    .profile-photo {
+      width: 100%; 
+      max-width: 250px; 
+      height: auto;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+    
+    /* Rodapé no Dark Mode */
+    .dark footer {
+        background-color: #1F2937; /* Cinza escuro para o rodapé */
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100 font-sans leading-relaxed tracking-wide flex flex-col min-h-screen">
+  
+  <button id="theme-toggle" aria-label="Alternar tema">
+    <span class="sun-icon">☀️ Modo Claro</span>
+    <span class="moon-icon">🌙 Modo Escuro</span>
+  </button>
+
+  <header class="text-white shadow-2xl text-center relative pt-0 pb-4 overflow-hidden">
+    
+    <img 
+        src="https://capsule-render.vercel.app/api?type=waving&color=8A2BE2&height=80&section=header" 
+        alt="Banner com efeito de onda" 
+        class="w-full h-auto mb-4"
+    >
+    
+    <div class="px-8">
+        <h1 class="text-5xl font-extrabold mb-1">Paulo Machado 👨‍💻</h1>
+        <p class="text-2xl mt-1 mb-4 opacity-90">Portfólio de <span class="text-yellow-300">Ciência de Dados</span> 📊</p>
+        
+        <div class="mt-4 flex flex-wrap justify-center gap-4">
+            <span class="bg-purple-700/70 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md hover:bg-purple-600 transition">🐍 Python & ML</span>
+            <span class="bg-blue-700/70 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md hover:bg-blue-600 transition">🗄️ SQL</span>
+            <span class="bg-yellow-700/70 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md hover:bg-yellow-600 transition">📊 Power BI/DAX</span>
+            <span class="bg-green-700/70 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md hover:bg-green-600 transition">📈 Estatística</span>
+        </div>
+
+        <p class="text-base mt-4 opacity-80 italic">Transformando dados complexos em insights estratégicos</p>
+    </div>
+  </header>
+  <main class="flex-grow main-continuous-bg">
+    
+    <section class="max-w-4xl mx-auto mt-6 p-8 bg-white rounded-2xl shadow-lg"> 	  
+      <h2 class="text-2xl font-bold text-purple-800 mb-6 text-center">👋 Sobre Mim</h2> 
+     
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        
+        <div class="md:col-span-1 flex justify-center pt-2 pb-4">
+            <img 
+                src="https://avatars.githubusercontent.com/u/128428773?s=400&u=e3ae3ebc8b12e2c3f73a991b8fea047452eeeee3&v=4" 
+                alt="Foto de Perfil de Paulo Machado" 
+                class="profile-photo rounded-full shadow-xl border-4 border-purple-500/50"
+            >
+        </div>
+        
+        <div class="md:col-span-2">
+            <p class="text-gray-700 mb-4">
+                Em transição de carreira para a área de <span class="text-purple-700 font-semibold">Ciência de Dados</span>, estou me especializando através do curso da 
+                <span class="text-purple-700 font-semibold">EBAC - Escola Britânica de Artes Criativas e Tecnologia</span>. Com um perfil comunicativo e focado em resultados, 
+                busco sempre transformar dados complexos em <span class="text-purple-700 font-semibold">insights claros e estratégicos</span> para o negócio. 
+            </p> 
+            <p class="text-gray-700 mb-4">
+                Sou também <span class="text-purple-700 font-semibold">PcD</span> — tenho perda severa de audição no ouvido direito — algo que nunca foi barreira, mas sim 
+                um detalhe que me ajudou a desenvolver ainda mais minha capacidade de <strong>foco, adaptação e criatividade</strong>. 
+            </p> 
+            <p class="text-gray-700">
+                Minha experiência prática inclui o desenvolvimento de projetos em <span class="text-purple-700 font-semibold">Python</span>, utilizando bibliotecas como Pandas, 
+                Scikit-learn e Matplotlib. Aplico <span class="text-purple-700 font-semibold">Machine Learning, Análise Exploratória e Visualização de Dados</span> para resolver 
+                problemas reais, como análises de clientes no setor bancário e comportamento de compra em e-commerce. 
+            </p>
+        </div>
+     </div>
+	</section>
+
+    <section class="max-w-4xl mx-auto mt-6 p-4 bg-white rounded-2xl shadow-lg text-center flex justify-center items-center space-x-4">
+        <div class="flex text-2xl text-yellow-500">
+            &#9733; &#9733; &#9733; &#9733; <span class="text-yellow-500 opacity-50">&#9733;</span>
+        </div>
+        <div>
+            <p class="text-xl font-bold text-yellow-500">4.8 de 5 estrelas</p>
+            <p class="text-sm text-yellow-600 dark:text-yellow-400 font-semibold">(Avaliado por 25 pessoas)</p>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto mt-6 p-8 bg-white rounded-2xl shadow-lg">
+        <h2 class="text-2xl font-bold text-purple-800 mb-6 text-center">🛠️ Habilidades Técnicas</h2>
+        <div class="flex flex-wrap justify-center gap-4 text-center">
+            <div class="p-3 bg-purple-100 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">🐍</p>
+                <p class="text-sm font-semibold text-purple-700">Python (Pandas, Scikit)</p>
+            </div>
+            <div class="p-3 bg-blue-100 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">🗄️</p>
+                <p class="text-sm font-semibold text-blue-700">SQL (PostgreSQL, SQLite)</p>
+            </div>
+            <div class="p-3 bg-yellow-100 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">📊</p>
+                <p class="text-sm font-semibold text-yellow-700">Power BI / DAX</p>
+            </div>
+            <div class="p-3 bg-pink-100 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">🤖</p>
+                <p class="text-sm font-semibold text-pink-700">Machine Learning</p>
+            </div>
+            <div class="p-3 bg-red-100 dark:bg-red-900 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">🔥</p>
+                <p class="text-sm font-semibold text-red-700 dark:text-red-300">Databricks / Spark</p>
+            </div>
+            <div class="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">🧠</p>
+                <p class="text-sm font-semibold text-indigo-700 dark:text-indigo-300">Uso de IA e Prompt Engineering</p>
+            </div>
+            <div class="p-3 bg-green-100 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">📈</p>
+                <p class="text-sm font-semibold text-green-700">Estatística / Teste A/B</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto mt-6 p-8 bg-white rounded-2xl shadow-lg">
+        <h2 class="text-2xl font-bold text-purple-800 mb-6 text-center">🧠 Soft Skills & Competências</h2>
+        <div class="flex flex-wrap justify-center gap-4 text-center">
+            <div class="p-3 bg-orange-100 dark:bg-orange-900 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">💬</p>
+                <p class="text-sm font-semibold text-orange-700 dark:text-orange-300">Comunicação Clara</p>
+            </div>
+            <div class="p-3 bg-fuchsia-100 dark:bg-fuchsia-900 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">👁️</p>
+                <p class="text-sm font-semibold text-fuchsia-700 dark:text-fuchsia-300">Foco e Detalhe</p>
+            </div>
+            <div class="p-3 bg-cyan-100 dark:bg-cyan-900 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">💡</p>
+                <p class="text-sm font-semibold text-cyan-700 dark:text-cyan-300">Resolução de Problemas</p>
+            </div>
+            <div class="p-3 bg-yellow-100 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">✨</p>
+                <p class="text-sm font-semibold text-yellow-700">Criatividade e Adaptação</p>
+            </div>
+            <div class="p-3 bg-lime-100 dark:bg-lime-900 rounded-xl shadow hover:scale-105 transition">
+                <p class="text-2xl">📚</p>
+                <p class="text-sm font-semibold text-lime-700 dark:text-lime-300">Facilidade no Aprendizado</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto mt-6 p-6 bg-white rounded-2xl shadow-lg text-center">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">📄 Meu Currículo</h2>
+      <p class="text-gray-700 mb-4">
+        Faça o download do meu currículo para conhecer minha trajetória, habilidades e experiências profissionais em detalhes.
+      </p>
+      <a href="https://github.com/Wekoda/wekoda.github.io/raw/main/CV%20EBAC%20Paulo%20Machado%20Jr.docx" download="CV-EBAC-Paulo-Machado-Jr.docx"
+        class="btn-purple inline-flex items-center text-white px-6 py-3 rounded-lg font-bold text-lg hover:scale-105 transition">
+        Baixar Currículo (.docx)
+      </a>
+    </section>
+
+    <section class="max-w-4xl mx-auto mt-6 p-8 bg-white rounded-2xl shadow-lg text-center">
+      <h2 class="text-2xl font-bold text-purple-800 mb-4">📬 Contatos</h2>
+      <p class="text-gray-700 mb-6">Conecte-se comigo ou explore meu trabalho:</p>
+      <div class="flex justify-center space-x-8 text-3xl">
+        <a href="https://github.com/Wekoda" target="_blank" class="hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" width="40" height="40">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404 c1.018.005 2.045.138 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.242 2.873.12 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.805 5.628-5.475 5.922.43.372.823 1.102.823 2.222 0 1.606-.014 2.896-.014 3.286 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/paulo-machado-data/" target="_blank"
+          class="hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#0A66C2" viewBox="0 0 24 24" width="40" height="40">
+            <path
+              d="M19 0h-14C2.24 0 0 2.24 0 5.02v13.96C0 21.76 2.24 24 5 24h14c2.76 0 5-2.24 5-5.02V5.02C24 2.24 21.76 0 19 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.64c-1.14 0-2.06-.93-2.06-2.06 0-1.14.92-2.06 2.06-2.06 1.14 0 2.06.92 2.06 2.06 0 1.13-.92 2.06-2.06 2.06zM20.45 20.45h-3.56v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.15 1.46-2.15 2.96v5.71h-3.56V9h3.42v1.56h.05c.48-.91 1.65-1.87 3.4-1.87 3.63 0 4.3 2.39 4.3 5.49v6.27z" />
+          </svg>
+        </a>
+        <a href="mailto:paulomachado.ofc@gmail.com" class="hover:scale-110 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#D44638" viewBox="0 0 24 24" width="40" height="40">
+            <path d="M12 13.065l-11.2-7.065h22.4L12 13.065zm0 2.935l-12-7.5V21h24V8.5l-12 7.5z" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="dashboard-env-bg">
+        <div class="max-w-4xl mx-auto p-8">
+             <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">📊 Dashboards em Power BI</h2>
+                        
+            <div class="grid md:grid-cols-1 gap-6">
+                 <div class="card bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                    <h2 class="text-xl font-semibold text-purple-800 mb-2">💰 Análise de Desempenho de Vendas</h2>
+                    <p class="mb-4 text-gray-700"><strong>Problema:</strong> Monitorar a performance de vendas em tempo real. <strong>Solução:</strong> Dashboard de Receita, Margem de Lucro e Metas. <strong>Insight:</strong> Permite a tomada de decisão ágil para otimizar estratégias comerciais. Use o PBIX para ver a modelagem DAX.</p>
+                                        
+                    <a href="https://raw.githubusercontent.com/Wekoda/PowerBI/main/dashboard_vendas.png" target="_blank" title="Clique para ver a imagem em tamanho real">
+                        <img 
+                            src="https://raw.githubusercontent.com/Wekoda/PowerBI/main/dashboard_vendas.png" 
+                            alt="Pré-visualização do Dashboard de Vendas em Power BI" 
+                            class="dashboard-preview">
+                    </a>
+                    
+                    <div class="flex mt-4">
+                        <a href="https://github.com/Wekoda/PowerBI/raw/main/PauloMachadoProjeto26.pbix" download
+                            class="btn-purple dashboard-button text-white px-4 py-2 rounded-lg hover:scale-105">
+                            ⬇️ Baixar PBIX
+                        </a>
+                    </div>
+                </div>
+                                
+                <div class="card bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                    <h2 class="text-xl font-semibold text-purple-800 mb-2">🎮 Análise e Tendências do Mercado de Jogos</h2>
+                    <p class="mb-4 text-gray-700"><strong>Problema:</strong> Entender o volume de vendas por plataforma e gênero. <strong>Solução:</strong> Dashboard detalhado com filtros de vendas e distribuição anual. <strong>Insight:</strong> Identifica nichos de mercado e tendências de longo prazo para investimento e desenvolvimento de produtos.</p>
+                                        
+                    <a href="https://raw.githubusercontent.com/Wekoda/PowerBI/main/dashboard_games.png" target="_blank" title="Clique para ver a imagem em tamanho real">
+                        <img 
+                            src="https://raw.githubusercontent.com/Wekoda/PowerBI/main/dashboard_games.png" 
+                            alt="Pré-visualização do Dashboard de Jogos em Power BI" 
+                            class="dashboard-preview">
+                    </a>
+                    
+                    <div class="flex mt-4">
+                        <a href="https://github.com/Wekoda/PowerBI/raw/main/ebac%20powerbi.pbix" download
+                            class="btn-purple dashboard-button text-white px-4 py-2 rounded-lg hover:scale-105">
+                            ⬇️ Baixar PBIX
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-bg-analitycs">
+        <div class="max-w-5xl mx-auto p-8">
+            <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">📈 Análise de Dados e Estatística</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="card card-analysis rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🎯 Pré-modelagem de Machine Learning</h2>
+                <p class="mb-4 text-gray-700"><strong>Foco:</strong> Garantir a qualidade dos dados. <strong>Técnicas:</strong> Pré-processamento, Análise Exploratória de Dados (EDA) e limpeza para aumentar a performance dos modelos de Machine Learning subsequentes.</p>
+                <a href="https://github.com/Wekoda/Profissao-Cientista-de-Dados-M17-Projeto/blob/main/Profissao_Cientista_de_Dados_M17_Projeto.ipynb" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+
+                <div class="card card-analysis rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🔍 Análise Bivariada de Churn</h2>
+                <p class="mb-4 text-gray-700"><strong>Objetivo:</strong> Identificar as principais causas da evasão de clientes. <strong>Insight:</strong> Exploração gráfica de duas variáveis para encontrar padrões e correlações que levam ao *churn*.</p>
+                <a href="https://github.com/Wekoda/Analise_bivariada/blob/main/Profissao_Cientista_de_Dados_M15_Pratique_(1).ipynb" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+                
+                <div class="card card-analysis rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🛠️ Feature Engineering e Pré-processamento</h2>
+                <p class="mb-4 text-gray-700"><strong>Foco:</strong> Melhorar o poder preditivo. <strong>Técnicas:</strong> Limpeza de dados, tratamento de valores faltantes e criação de novas variáveis (Feature Engineering) para enriquecer o *dataset* para ML.</p>
+                <a href="https://github.com/Wekoda/ex-ciencia-de-dados-2/blob/main/Profissao_Cientista_de_Dados_M14_Pratique_" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+                
+                <div class="card card-analysis rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🏠 Modelo Preditivo do Setor Imobiliário</h2>
+                <p class="mb-4 text-gray-700"><strong>Problema:</strong> Previsão de preços de imóveis. <strong>Técnicas:</strong> Modelagem de <strong>Regressão Linear</strong> (Simples e Múltipla) para estimar valores e extrair *insights* sobre os fatores que mais influenciam o preço.</p>
+                <a href="https://github.com/Wekoda/regressao-simples-e-multipla/blob/main/Profissao_Cientista_de_Dados_M18_Pratique.ipynb" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+                
+                <div class="card card-analysis rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">📈 Teste de Hipótese para Análise de Dados</h2>
+                <p class="mb-4 text-gray-700"><strong>Objetivo:</strong> Validar a eficácia de novas estratégias. <strong>Técnicas:</strong> Implementação de um <strong>Teste Z unilateral</strong> para comparar o desempenho de dois grupos, permitindo decisões estatisticamente sólidas.</p>
+                <a href="https://github.com/Wekoda/Teste_unilateral/blob/main/Profissao_Cientista_de_Dados_M19_Pratique%20(2).ipynb" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-bg-ml">
+        <div class="max-w-5xl mx-auto p-8">
+            <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">🤖 Modelos de Machine Learning</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="card card-ml rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">💳 Previsão de Score de Crédito com Naive Bayes</h2>
+                <p class="mb-4 text-gray-700"><strong>Problema:</strong> Prever a capacidade de pagamento. <strong>Técnicas:</strong> Modelo de <strong>Classificação</strong> Naive Bayes para estimar o risco de crédito e auxiliar na aprovação de empréstimos e cartões.</p>
+                <a href="https://github.com/Wekoda/Credit-score-Naive-Bayes/blob/main/Profissao_Cientista_de_Dados_M20_Pratique.ipynb" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+                
+                <div class="card card-ml rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🌳 Classificação com Árvore de Decisão</h2>
+                <p class="mb-4 text-gray-700"><strong>Objetivo:</strong> Segmentar clientes de forma interpretável. <strong>Técnicas:</strong> Desenvolvimento e avaliação de um modelo de <strong>Árvore de Decisão</strong> que permite entender as regras de negócio por trás da classificação.</p>
+                <a href="https://github.com/Wekoda/Tree-decision/blob/main/Profissao_Cientista_de_Dados_M21_Pratique.ipynb" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-bg-sql">
+        <div class="max-w-5xl mx-auto p-8">
+            <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">🗄️ Projetos em SQL</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="card card-sql rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🚀 Operações Básicas em SQL</h2>
+                <p class="mb-4 text-gray-700"><strong>Foco:</strong> Habilidade de manipulação e extração. <strong>Técnicas:</strong> Coleção de queries essenciais (SELECT, INSERT, UPDATE, DELETE) e diferentes tipos de <strong>JOINs</strong> para preparo e consumo de dados.</p>
+                <a href="https://github.com/Wekoda/Opera-es-basicas-SQL" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+                
+                <div class="card card-sql rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+                <h2 class="text-xl font-semibold text-purple-800 mb-2">🗃️ SQLite Básico</h2>
+                <p class="mb-4 text-gray-700"><strong>Objetivo:</strong> Prática com banco de dados leve. <strong>Técnicas:</strong> Manipulação de dados em SQLite, desde a criação de tabelas até a inserção de registros e a execução de consultas mais complexas.</p>
+                <a href="https://github.com/Wekoda/SQLite-basico" target="_blank"
+                    class="btn-purple inline-flex items-center text-white px-4 py-2 rounded-lg">
+                    Ver Projeto
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </main>
+  
+  <footer class="bg-gray-200 text-center p-4 mt-8">
+    <p class="text-sm text-gray-600">© 2025 - Portfólio de Ciência de Dados | Feito por Paulo Machado</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Função para aplicar o tema
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Verifica o tema salvo no localStorage ou usa a preferência do sistema
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDark) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light');
+    }
+
+    // Alterna o tema ao clicar no botão
+    themeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark')) {
+            applyTheme('light');
+        } else {
+            applyTheme('dark');
+        }
+    });
+  </script>
+</body>
+</html>
