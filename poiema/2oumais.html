@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2ou+ · Poiema</title>
+<meta name="description" content="Encontre um 2ou+ perto da sua casa.">
+<link rel="preload" href="assets/fonts/fraunces-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="pg-2oumais ">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-seta" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-diag" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></symbol>
+<symbol id="i-pino" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.6" fill="currentColor"/></symbol>
+<symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+<symbol id="i-conversa" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.1A8 8 0 1 1 20 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-alvo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-sacola" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+<symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.4 3 8 7 9.5 4-1.5 7-5.1 7-9.5V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-caminhao" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="17.5" r="1.8" fill="currentColor"/><circle cx="17" cy="17.5" r="1.8" fill="currentColor"/></symbol>
+<symbol id="i-fone" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="13" width="5" height="7" rx="2" fill="currentColor"/><rect x="16" y="13" width="5" height="7" rx="2" fill="currentColor"/></symbol>
+<symbol id="i-pausa" viewBox="0 0 24 24"><rect x="6" y="5" width="4.2" height="14" rx="1.2" fill="currentColor"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2" fill="currentColor"/></symbol>
+<symbol id="i-anterior" viewBox="0 0 24 24"><path d="M18 5v14L8 12z" fill="currentColor"/><rect x="5" y="5" width="2.6" height="14" rx="1" fill="currentColor"/></symbol>
+<symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="i-casa" viewBox="0 0 24 24"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-calendario" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="14.8" r="1.6" fill="currentColor"/></symbol>
+<symbol id="i-video" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></symbol>
+<symbol id="i-nota" viewBox="0 0 24 24"><path d="M9 17.5V6.5l10-2v11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="2.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="2.6" fill="currentColor"/></symbol>
+<symbol id="i-porta" viewBox="0 0 24 24"><path d="M6 20V4.5h12V20M3.5 20h17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14.5" cy="12.5" r="1.3" fill="currentColor"/></symbol>
+<symbol id="i-mesa" viewBox="0 0 24 24"><path d="M2.5 11h19M5 11l-1 8M19 11l1 8M8 8.5a4 2 0 0 1 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-livro" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5V19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="i-asterisco" viewBox="0 0 100 100"><g fill="currentColor"><rect x="39" y="0" width="22" height="100" rx="3"/><rect x="39" y="0" width="22" height="100" rx="3" transform="rotate(60 50 50)"/><rect x="39" y="0" width="22" height="100" rx="3" transform="rotate(120 50 50)"/></g></symbol>
+</svg>
+<a class="sr-only" href="#conteudo">Pular para o conteúdo</a>
+<header class="header" data-spec="Header · fixo · 104 (desk) / 72 (mobile)">
+  <div class="container">
+    <a class="logo logo-vivo" href="index.html" aria-label="Poiema, página inicial"><span class="selo-wrap"><img class="selo-diamante" src="assets/logo/poiema-selo-preto.svg" alt=""></span><span class="logo-nome">POIEMA</span><span class="bolha" aria-hidden="true">você está feliz?</span></a>
+    <nav class="nav" aria-label="Principal"><a href="index.html" title="Início"><svg class="icone-aba" aria-hidden="true"><use href="#i-casa"/></svg><span class="rotulo">Início</span></a><a href="eventos.html" title="Eventos"><svg class="icone-aba" aria-hidden="true"><use href="#i-calendario"/></svg><span class="rotulo">Eventos</span></a><a href="2oumais.html" aria-current="page" title="2ou+"><img class="logo-2ou" src="assets/logo/logo-2oumais-preto.svg" alt="2ou+"></a><a href="hub-multiplique.html" title="Hub Multiplique"><svg class="icone-aba asterisco" aria-hidden="true"><use href="#i-asterisco"/></svg><span class="rotulo">Hub Multiplique</span></a><a href="loja.html" title="Loja"><svg class="icone-aba" aria-hidden="true"><use href="#i-sacola"/></svg><span class="rotulo">Loja</span></a><a href="youtube.html" title="YouTube"><svg class="icone-aba" aria-hidden="true"><use href="#i-video"/></svg><span class="rotulo">YouTube</span></a><a href="music.html" title="Poiema Music"><svg class="icone-aba" aria-hidden="true"><use href="#i-nota"/></svg><span class="rotulo">Poiema Music</span></a></nav>
+    <span></span>
+  </div>
+</header>
+<button class="menu-flutuante" aria-expanded="false" aria-controls="menu-folha" data-spec="Menu flutuante · 56 · zona do polegar"><svg class="icone" aria-hidden="true"><use href="#i-menu"/></svg>Menu</button>
+<div class="menu-folha" id="menu-folha" aria-hidden="true">
+  <div class="veu" data-fechar></div>
+  <div class="folha" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="alca"></div>
+    <nav aria-label="Principal (mobile)"><a href="index.html" title="Início"><svg class="icone-aba" aria-hidden="true"><use href="#i-casa"/></svg><span class="rotulo">Início</span></a><a href="eventos.html" title="Eventos"><svg class="icone-aba" aria-hidden="true"><use href="#i-calendario"/></svg><span class="rotulo">Eventos</span></a><a href="2oumais.html" aria-current="page" title="2ou+"><img class="logo-2ou-folha" src="assets/logo/logo-2oumais-preto.svg" alt="2ou+"></a><a href="hub-multiplique.html" title="Hub Multiplique"><svg class="icone-aba asterisco" aria-hidden="true"><use href="#i-asterisco"/></svg><span class="rotulo">Hub Multiplique</span></a><a href="loja.html" title="Loja"><svg class="icone-aba" aria-hidden="true"><use href="#i-sacola"/></svg><span class="rotulo">Loja</span></a><a href="youtube.html" title="YouTube"><svg class="icone-aba" aria-hidden="true"><use href="#i-video"/></svg><span class="rotulo">YouTube</span></a><a href="music.html" title="Poiema Music"><svg class="icone-aba" aria-hidden="true"><use href="#i-nota"/></svg><span class="rotulo">Poiema Music</span></a></nav>
+    <button class="botao botao--contorno fechar" data-fechar>Fechar</button>
+  </div>
+</div>
+<main id="conteudo">
+<div class="fundo-2ou" aria-hidden="true"></div>
+<section class="container d2-abre" data-spec="A · Abertura · igreja nas casas">
+  <div class="texto">
+    <span class="selo-2ou"><img src="assets/logo/logo-2oumais-creme.svg" alt="2ou+"></span>
+    <h1 class="display t-1">a igreja acontece <em>nas casas</em></h1>
+    <p class="lead">A Poiema começou com uma mesa. Virou um 2ou+. Hoje é uma igreja, e continua se encontrando do mesmo jeito: em casas abertas, com gente do seu bairro, durante a semana.</p>
+    <blockquote class="verso"><q>Onde estiverem dois ou três reunidos em meu nome, ali estou eu no meio deles.</q><cite>Mateus 18:20</cite></blockquote>
+    <div class="linha" style="gap:12px;flex-wrap:wrap"><a class="botao botao--primario botao--g" href="#encontrar"><svg class="icone" aria-hidden="true"><use href="#i-pino"/></svg>Encontrar um 2ou+ perto de mim</a><a class="botao botao--contorno botao--g" href="#historia">Como tudo começou</a></div>
+  </div>
+  <span class="mascote m-2ou" data-mascote="2ou" data-movimento="arremesso" aria-hidden="true"><img src="assets/mascotes/2ou.webp" alt="" draggable="false"></span><figure class="foto-casa" data-revelar><img src="assets/music/capa-2oumais-vol1.webp" alt="Sala cheia de gente reunida em uma casa, com violões"><figcaption><b>Casa cheia.</b> Gravação do álbum 2ou+ vol.1, numa sala de estar.</figcaption></figure>
+</section>
+
+<section class="secao container com-deco" id="historia" data-spec="B · Linha do tempo · mesa → 2ou+ → igreja">
+  <div class="cabecalho-secao"><div><p class="sobretitulo">Nossa história</p><h2 class="display t-2">uma mesa, depois um 2ou+, hoje uma igreja</h2></div></div>
+  <span class="palavra-fundo pf-2ou" aria-hidden="true" data-vel="-0.08">casa</span><ol class="historia" data-historia>
+    <li data-revelar><span class="marco"><svg class="icone" aria-hidden="true"><use href="#i-mesa"/></svg></span><span class="fase">Primeiro</span><h3 class="display t-3">uma mesa</h3><p>Tudo começou com pessoas sentadas em volta de uma mesa, abrindo a Bíblia e a vida.</p></li>
+    <li data-revelar><span class="marco marco--2ou"><img src="assets/logo/logo-2oumais-creme.svg" alt=""></span><span class="fase">Depois</span><h3 class="display t-3">um 2ou+</h3><p>A mesa se multiplicou em casas. Dois ou mais reunidos em nome de Jesus.</p></li>
+    <li data-revelar><span class="marco"><svg class="icone" aria-hidden="true"><use href="#i-casa"/></svg></span><span class="fase">Hoje</span><h3 class="display t-3">uma igreja</h3><p>Uma igreja que voltou à essência: os domingos juntos e a vida acontecendo nas casas.</p></li>
+  </ol>
+  <p class="nota" style="margin-top:20px">Datas e marcos da história: confirmar com a liderança.</p>
+</section>
+
+<section class="container" data-spec="C · Por dentro de um 2ou+ · ilustração com pontos clicáveis">
+  <div class="dentro">
+    <div class="texto">
+      <p class="sobretitulo">Por dentro de um 2ou+</p>
+      <h2 class="display t-2">o que acontece numa casa aberta</h2>
+      <p class="lead">Toque nos pontos da casa.</p>
+      <div class="dicas"><div class="dica" id="dica-porta" data-dica="porta" role="status"><span class="ic-dica"><svg class="icone" aria-hidden="true"><use href="#i-porta"/></svg></span><b>A porta aberta</b><p>Alguém abre a casa. Talvez a sua casa seja a resposta para alguém.</p></div><div class="dica ativa" id="dica-mesa" data-dica="mesa" role="status"><span class="ic-dica"><svg class="icone" aria-hidden="true"><use href="#i-mesa"/></svg></span><b>A mesa</b><p>Comer junto é por onde tudo começa. A Poiema nasceu assim: em volta de uma mesa.</p></div><div class="dica" id="dica-livro" data-dica="livro" role="status"><span class="ic-dica"><svg class="icone" aria-hidden="true"><use href="#i-livro"/></svg></span><b>A Palavra no centro</b><p>A Bíblia aberta no meio da sala, lida e conversada sem pressa.</p></div><div class="dica" id="dica-coracao" data-dica="coracao" role="status"><span class="ic-dica"><svg class="icone" aria-hidden="true"><use href="#i-coracao"/></svg></span><b>Cuidado de verdade</b><p>Gente que ora uns pelos outros e se lembra de você durante a semana.</p></div></div>
+    </div>
+    <div class="casa" data-casa><svg class="casa-svg" viewBox="0 0 600 420" role="img" aria-label="Ilustração de uma casa por dentro: porta, mesa posta, Bíblia aberta e pessoas reunidas">
+  <path d="M40 170 300 30 560 170" fill="none" stroke="#1B63F0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="70" y="160" width="460" height="230" rx="18" fill="#FFFFFF" stroke="#1B63F0" stroke-width="6"/>
+  <rect x="100" y="230" width="80" height="160" rx="10" fill="#DCE6FC"/><circle cx="165" cy="315" r="5" fill="#1B63F0"/>
+  <rect x="420" y="200" width="80" height="70" rx="10" fill="#EDF1F9" stroke="#1B63F0" stroke-width="4"/><path d="M460 200v70M420 235h80" stroke="#1B63F0" stroke-width="4"/>
+  <ellipse cx="310" cy="300" rx="120" ry="22" fill="#F2C14E"/><rect x="215" y="300" width="10" height="70" rx="4" fill="#C9962B"/><rect x="395" y="300" width="10" height="70" rx="4" fill="#C9962B"/>
+  <rect x="285" y="276" width="52" height="16" rx="3" fill="#C8322B"/><path d="M311 276v16" stroke="#fff" stroke-width="2"/>
+  <circle cx="240" cy="286" r="8" fill="#fff" stroke="#1B63F0" stroke-width="3"/><circle cx="378" cy="286" r="8" fill="#fff" stroke="#1B63F0" stroke-width="3"/>
+  <g fill="#1B63F0"><circle cx="230" cy="232" r="16"/><rect x="214" y="250" width="32" height="34" rx="14"/><circle cx="300" cy="222" r="16"/><rect x="284" y="240" width="32" height="34" rx="14"/><circle cx="372" cy="232" r="16"/><rect x="356" y="250" width="32" height="34" rx="14"/></g>
+  <g fill="#F4EFE7"><circle cx="225" cy="230" r="2.6"/><circle cx="236" cy="230" r="2.6"/><circle cx="295" cy="220" r="2.6"/><circle cx="306" cy="220" r="2.6"/><circle cx="367" cy="230" r="2.6"/><circle cx="378" cy="230" r="2.6"/></g>
+  <path d="M222 239q8 6 16 0M292 229q8 6 16 0M364 239q8 6 16 0" fill="none" stroke="#F4EFE7" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M470 150v-40h30v62" fill="#DCE6FC" stroke="#1B63F0" stroke-width="6" stroke-linejoin="round"/>
+</svg><button class="ponto" style="left:23%;top:72%" data-ponto="porta" aria-expanded="false" aria-controls="dica-porta"><span class="sr-only">A porta aberta</span><svg class="icone" aria-hidden="true"><use href="#i-porta"/></svg></button><button class="ponto" style="left:37%;top:79%" data-ponto="mesa" aria-expanded="true" aria-controls="dica-mesa"><span class="sr-only">A mesa</span><svg class="icone" aria-hidden="true"><use href="#i-mesa"/></svg></button><button class="ponto" style="left:52%;top:63%" data-ponto="livro" aria-expanded="false" aria-controls="dica-livro"><span class="sr-only">A Palavra no centro</span><svg class="icone" aria-hidden="true"><use href="#i-livro"/></svg></button><button class="ponto" style="left:64%;top:40%" data-ponto="coracao" aria-expanded="false" aria-controls="dica-coracao"><span class="sr-only">Cuidado de verdade</span><svg class="icone" aria-hidden="true"><use href="#i-coracao"/></svg></button></div>
+  </div>
+</section>
+
+<section class="secao" data-spec="D · Histórias · depoimentos (carrossel)">
+  <div class="container"><div class="cabecalho-secao"><div><p class="sobretitulo">Histórias de quem abriu a porta</p><h2 class="display t-2">o que um 2ou+ fez na vida deles</h2></div><div class="setas"><button class="seta-c" data-carrossel="-1" aria-label="Anterior"><svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></button><button class="seta-c" data-carrossel="1" aria-label="Próximo"><svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></button></div></div></div>
+  <div class="depoimentos" data-trilho data-auto><figure class="depo"><img src="assets/2ou/casa-cpv-2.webp" alt="Depoimento de Denilson sobre o 2ou+" loading="lazy"><figcaption>Denilson</figcaption></figure><figure class="depo"><img src="assets/2ou/casa-cpv-3.webp" alt="Depoimento de Lú Costa sobre o 2ou+" loading="lazy"><figcaption>Lú Costa</figcaption></figure><figure class="depo"><img src="assets/2ou/casa-cpv-4.webp" alt="Depoimento de Diego sobre o 2ou+" loading="lazy"><figcaption>Diego</figcaption></figure><figure class="depo"><img src="assets/2ou/casa-cpv-5.webp" alt="Depoimento de Tati sobre o 2ou+" loading="lazy"><figcaption>Tati</figcaption></figure><figure class="depo"><img src="assets/2ou/casa-cpv-6.webp" alt="Depoimento de Dézão sobre o 2ou+" loading="lazy"><figcaption>Dézão</figcaption></figure><figure class="depo"><img src="assets/2ou/casa-cpv-7.webp" alt="Depoimento de Jeff sobre o 2ou+" loading="lazy"><figcaption>Jeff</figcaption></figure><figure class="depo"><img src="assets/2ou/casa-cpv-8.webp" alt="Depoimento de Ellen sobre o 2ou+" loading="lazy"><figcaption>Ellen</figcaption></figure></div>
+</section>
+
+<section class="container d2-topo" id="encontrar" data-spec="E · Encontrar um 2ou+ (passo 1)">
+  <div class="d2-texto">
+    <p class="sobretitulo">Encontre o seu</p>
+    <h2 class="display t-2">tem uma mesa posta <em>perto de você</em></h2>
+    <p class="lead">Conta onde você mora e a gente te apresenta a quem já está guardando um lugar pra você.</p>
+    <div class="convite-mesa"><span><i></i>Gente do seu bairro</span><span><i></i>Conversa de verdade</span><span><i></i>Oração uns pelos outros</span></div>
+  </div>
+  <form class="d2-busca card" onsubmit="return false" data-spec="Busca · 6 col" data-spec-sub>
+    <p class="sobretitulo">Passo 1 de 3</p>
+    <h2>Onde fica a sua casa?</h2>
+    <div class="campo"><label for="cep">CEP ou bairro</label><div class="entrada"><svg class="icone" aria-hidden="true"><use href="#i-pino"/></svg><input id="cep" placeholder="Ex.: 12000-000 ou nome do bairro" autocomplete="postal-code"></div></div>
+    <button type="button" class="usar-local"><svg class="icone" aria-hidden="true"><use href="#i-alvo"/></svg>Usar minha localização atual</button>
+    <button class="botao botao--primario botao--g botao--bloco">Ver 2ou+ perto de mim<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></button>
+    <div class="privacidade"><svg class="icone" aria-hidden="true"><use href="#i-cadeado"/></svg><p>Não mostramos o endereço das casas. Seu CEP serve só para achar o grupo mais perto; o endereço do encontro vem depois, quando o líder falar com você.</p></div>
+    <a class="link-whats" href="https://wa.me/5512996181738">Prefere conversar com alguém? Chamar no WhatsApp<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></a>
+  </form>
+</section>
+<section class="container" data-spec="F · Resultado · mapa com áreas aproximadas + lista">
+  <div class="cabecalho-secao"><div><p class="sobretitulo">Resultado da busca</p><h2 class="display t-2">3 grupos perto de você</h2></div><span class="etiqueta etiqueta--exemplo">dados de exemplo</span></div>
+  <div class="d2-resultado">
+    <div class="mapa" role="img" aria-label="Mapa com três áreas aproximadas de grupos 2ou+ ao redor da sua localização">
+      <span class="rua" style="left:-20px;right:-20px;top:46%;rotate:-8deg"></span>
+      <span class="rua" style="left:38%;width:14px;height:auto;top:-20px;bottom:-20px;rotate:12deg"></span>
+      <span class="area ativa" style="left:14%;top:12%;width:170px;height:170px"><b>2ou+ A</b></span>
+      <span class="area" style="left:50%;top:30%;width:200px;height:200px"><b>2ou+ B</b></span>
+      <span class="area" style="left:22%;top:56%;width:150px;height:150px"><b>2ou+ C</b></span>
+      <span class="voce" style="left:44%;top:46%"><i></i>você</span>
+      <span class="aviso">As áreas são aproximadas para proteger quem recebe o grupo em casa.</span>
+    </div>
+    <div class="grupos">
+      <article class="grupo ativo"><div class="info"><div class="nome">2ou+ A · bairro <span class="etiqueta etiqueta--azul">Solteiros</span></div><div class="detalhe">Quintas · 20h  ·  ≈ 1,2 km de você</div></div><a class="botao botao--primario botao--p" href="#cadastro">Quero participar<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></a></article>
+      <article class="grupo"><div class="info"><div class="nome">2ou+ B · bairro <span class="etiqueta etiqueta--azul">Casais</span></div><div class="detalhe">Terças · 20h  ·  ≈ 2,0 km de você</div></div><a class="botao botao--contorno botao--p" href="#cadastro">Quero participar<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></a></article>
+      <article class="grupo"><div class="info"><div class="nome">2ou+ C · bairro <span class="etiqueta etiqueta--azul">Base</span></div><div class="detalhe">Sábados · 17h  ·  ≈ 2,8 km de você</div></div><a class="botao botao--contorno botao--p" href="#cadastro">Quero participar<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></a></article>
+      <p class="nota">Dias e horários são exemplos. Os tipos de 2ou+ são reais: Casais, Solteiros, Base e Poieminhas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="secao d2-cadastro" id="cadastro" style="margin-top:var(--secao-y)" data-spec="G · Cadastro (após 'Quero participar')">
+  <div class="container">
+    <div class="d2-cad-texto">
+      <p class="sobretitulo">Último passo</p>
+      <h2 class="display t-2">falta pouco para você chegar</h2>
+      <p class="lead">Deixe um contato e os dias que funcionam para você. O líder do grupo te chama no WhatsApp e combina o primeiro encontro.</p>
+      <ol class="passos-prog">
+        <li class="feito"><span class="n"><svg class="icone" aria-hidden="true"><use href="#i-check"/></svg></span>Onde você mora</li>
+        <li class="agora"><span class="n">2</span>Seus dados e melhores dias</li>
+        <li class="depois"><span class="n">3</span>O líder te chama no WhatsApp</li>
+      </ol>
+    </div>
+    <form class="form-2ou card" onsubmit="return false">
+      <h3>Seus dados</h3>
+      <div class="dupla">
+        <div class="campo"><label for="nome">Seu nome</label><div class="entrada"><input id="nome" placeholder="Como podemos te chamar?" autocomplete="given-name"></div></div>
+        <div class="campo"><label for="whats">WhatsApp</label><div class="entrada"><span class="prefixo">+55</span><input id="whats" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel-national"></div></div>
+      </div>
+      <fieldset class="grupo-chips" style="border:0"><legend>Qual 2ou+ você procura? <span class="cor-2" style="font-weight:400">(pode marcar mais de um)</span></legend><div class="chips"><button type="button" class="chip" aria-pressed="false">Casais</button><button type="button" class="chip" aria-pressed="true">Solteiros</button><button type="button" class="chip" aria-pressed="false">Base <small>adolescentes</small></button><button type="button" class="chip" aria-pressed="false">Poieminhas <small>crianças</small></button></div></fieldset>
+      <fieldset class="grupo-chips" style="border:0"><legend>Quais dias funcionam melhor?</legend><div class="chips"><button type="button" class="chip" aria-pressed="false">Seg</button><button type="button" class="chip" aria-pressed="true">Ter</button><button type="button" class="chip" aria-pressed="false">Qua</button><button type="button" class="chip" aria-pressed="true">Qui</button><button type="button" class="chip" aria-pressed="false">Sex</button><button type="button" class="chip" aria-pressed="false">Sáb</button><button type="button" class="chip" aria-pressed="false">Dom</button></div></fieldset>
+      <label class="consentimento"><input type="checkbox" checked>Autorizo a Poiema a me chamar no WhatsApp para falar sobre o 2ou+. Meus dados não são usados para outra coisa.</label>
+      <button class="botao botao--primario botao--g botao--bloco">Enviar e aguardar contato<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></button>
+      <div class="sucesso" role="status"><svg class="icone" aria-hidden="true"><use href="#i-check"/></svg>Pronto! O líder do 2ou+ vai falar com você pelo WhatsApp.</div>
+    </form>
+  </div>
+</section>
+
+<section class="secao container" data-spec="H · Como funciona">
+  <div class="cabecalho-secao"><div><p class="sobretitulo">Como funciona</p><h2 class="display t-2">do seu bairro até a mesa</h2></div></div>
+  <div class="passos-3">
+    <article class="passo card" data-revelar><span class="num">1</span><h3 class="titulo-card">Você conta onde mora</h3><p>Só o CEP ou o bairro. Assim achamos o 2ou+ mais perto de você.</p></article>
+    <article class="passo card" data-revelar><span class="num">2</span><h3 class="titulo-card">O líder te chama</h3><p>Pelo WhatsApp, para se apresentar e combinar o primeiro encontro.</p></article>
+    <article class="passo card" data-revelar><span class="num">3</span><h3 class="titulo-card">Você chega para o encontro</h3><p>Numa casa perto da sua, com poucas pessoas e um ambiente acolhedor.</p></article>
+  </div>
+</section>
+
+<section class="secao container" data-spec="I · Assista · vídeos sobre o 2ou+">
+  <div class="cabecalho-secao"><div><p class="sobretitulo">Para entender melhor</p><h2 class="display t-2">por que nos reunimos nas casas</h2></div><a class="link-seta" href="youtube.html">Mais no YouTube<svg class="icone" aria-hidden="true"><use href="#i-diag"/></svg></a></div>
+  <div class="grade-videos"><a class="vcard " href="https://www.youtube.com/watch?v=OIl20xvHQaA" data-revelar><div class="thumb"><img src="assets/yt/OIl20xvHQaA.webp" alt="" loading="lazy"><span class="play"><svg class="icone" aria-hidden="true"><use href="#i-play"/></svg></span><span class="duracao">38:06</span></div><h3>Célula não é estratégia de crescimento</h3><p class="meta">Na Mesa · Lucas Barreto e Vinícius Correa</p></a><a class="vcard " href="https://www.youtube.com/watch?v=VJWpzDR0sS0" data-revelar><div class="thumb"><img src="assets/yt/VJWpzDR0sS0.webp" alt="" loading="lazy"><span class="play"><svg class="icone" aria-hidden="true"><use href="#i-play"/></svg></span><span class="duracao">1:11:36</span></div><h3>Sempre terá um lugar na mesa para você</h3><p class="meta">Welison Silveira</p></a><a class="vcard " href="https://www.youtube.com/watch?v=hc_udDBaQDg" data-revelar><div class="thumb"><img src="assets/yt/hc_udDBaQDg.webp" alt="" loading="lazy"><span class="play"><svg class="icone" aria-hidden="true"><use href="#i-play"/></svg></span><span class="duracao">59:25</span></div><h3>A vida da mesa</h3><p class="meta">Leonardo Barreto</p></a></div>
+</section>
+
+<section class="container" data-spec="J · Dúvidas">
+  <div class="duvidas">
+    <div><p class="sobretitulo">Dúvidas</p><h2 class="display t-2" style="margin-top:10px">antes de você ir</h2></div>
+    <div class="acordeao">
+      <details open><summary>Preciso ser membro da Poiema?</summary><p>[Resposta a confirmar com a liderança do 2ou+]</p></details>
+      <details><summary>Posso levar meus filhos?</summary><p>[Resposta a confirmar]</p></details>
+      <details><summary>O que acontece em um encontro?</summary><p>[Resposta a confirmar]</p></details>
+      <details><summary>Como é o primeiro encontro?</summary><p>[Resposta a confirmar]</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="secao container" data-spec="K · Seja anfitrião">
+  <div class="faixa-anfitriao">
+    <div class="pilha">
+      <img src="assets/logo/logo-2oumais-creme.svg" alt="2ou+">
+      <h2 class="display t-2">talvez a sua casa seja a resposta para alguém</h2>
+      <p>“Não se esqueçam da hospitalidade; foi praticando-a que, sem saber, alguns acolheram anjos.” Hebreus 13:2. Receber um 2ou+ é abrir espaço para pessoas encontrarem Jesus e descobrirem que fazem parte de uma família.</p>
+    </div>
+    <a class="botao botao--claro botao--g" href="https://wa.me/5512996181738">Quero ser anfitrião<svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg></a>
+  </div>
+</section>
+</main>
+<footer class="rodape" data-spec="Rodapé">
+  <div class="container">
+    <div class="colunas">
+      <div class="pilha" style="gap:20px">
+        <a class="logo" href="index.html"><img class="selo-diamante" src="assets/logo/poiema-selo-preto.svg" alt="">POIEMA</a>
+        <p class="frase">De criaturas a servos, amigos e filhos.</p>
+      </div>
+      <div>
+        <h3>Acompanhe</h3>
+        <ul>
+          <li><a href="https://www.instagram.com/poiemataubate/">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@poiemataubate">YouTube</a></li>
+          <li><a href="https://open.spotify.com/artist/3J1DPzxFle820jJFvkSrvf">Spotify</a></li>
+          <li><a href="https://soundcloud.com/poiema-music">SoundCloud</a></li>
+          <li><a href="https://poiemastore.com.br">Poiema Store</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Venha nos visitar</h3>
+        <ul>
+          <li><span>Rua Juca Esteves, 563</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Rua+Juca+Esteves+563"><svg class="icone" aria-hidden="true"><use href="#i-pino"/></svg>Como chegar</a></li>
+          <li><a href="#whatsapp-igreja"><svg class="icone" aria-hidden="true"><use href="#i-conversa"/></svg>Falar com a igreja</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="base"><span>© Igreja Poiema</span><span>Feito com cuidado para quem chega.</span></div>
+  </div>
+  <div class="marca-gigante" aria-hidden="true">poiema</div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
